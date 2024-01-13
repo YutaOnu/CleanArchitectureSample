@@ -6,52 +6,60 @@
 
 ```
 .
-├── Dockerfile
-├── nodemon.json
-├── package-lock.json
-├── package.json
-├── src
-│   ├── domain ← Enterprise Business Rules層
-│   │   ├── gateways
-│   │   │   └── RoadmapGateway.ts
-│   │   └── models
-│   │       └── Roadmap.ts
-│   ├── infra ← Frameworks & Drivers層
-│   │   ├── db
-│   │   │   └── mysql
-│   │   │       ├── database.js
-│   │   │       └── repositories
-│   │   │           └── RoadmapRepository.ts
-│   │   └── http
-│   │       └── express
-│   │           ├── adapters
-│   │           │   └── roadmap
-│   │           │       └── toCreateRequest.ts
-│   │           ├── app.ts
-│   │           ├── bin
-│   │           │   └── www
-│   │           ├── injector
-│   │           │   └── RoadmapInjector.ts
-│   │           ├── public
-│   │           │   ├── index.html
-│   │           │   └── stylesheets
-│   │           │       └── style.css
-│   │           └── routes
-│   │               └── roadmaps.ts
-│   ├── interfaces ← Interface Adapters層
-│   │   ├── controllers
-│   │   │   └── api
-│   │   │       └── v1
-│   │   │           └── roadmap
-│   │   │               └── RoadmapCreateController.ts
-│   │   └── requests
-│   │       └── api
-│   │           └── v1
-│   │               └── roadmap
-│   │                   └── RoadmapCreateRequest.ts
-│   └── usecases ← Application Business Rules層
-│       └── roadmap
-│           └── CreateRoadmap.ts
-└── tsconfig.json
+├── README.md
+├── api
+│   ├── Dockerfile
+│   ├── node_modules
+│   ├── nodemon.json
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── src
+│   │   ├── application ← Application Business Rules層
+│   │   │   └── usecases
+│   │   │       └── users
+│   │   │           └── CreateUser.ts
+│   │   ├── domain ← Enterprise Business Rules層
+│   │   │   ├── gateways
+│   │   │   │   └── UserGateway.ts
+│   │   │   └── models
+│   │   │       └── users
+│   │   │           ├── User.ts
+│   │   │           ├── UserId.ts
+│   │   │           └── UserName.ts
+│   │   ├── infra ← Frameworks & Drivers層
+│   │   │   ├── db
+│   │   │   │   └── mysql
+│   │   │   │       ├── database.js
+│   │   │   │       └── repositories
+│   │   │   │           └── UserRepository.ts
+│   │   │   └── http
+│   │   │       └── express
+│   │   │           ├── adapters
+│   │   │           │   └── user
+│   │   │           │       └── toCreateRequest.ts
+│   │   │           ├── app.ts
+│   │   │           ├── bin
+│   │   │           │   └── www
+│   │   │           ├── injector
+│   │   │           │   └── UserInjector.ts
+│   │   │           ├── public
+│   │   │           │   ├── index.html
+│   │   │           │   └── stylesheets
+│   │   │           │       └── style.css
+│   │   │           └── routes
+│   │   │               └── user.ts
+│   │   └── interfaces ← Interface Adapters層
+│   │       ├── controllers
+│   │       │   └── api
+│   │       │       └── v1
+│   │       │           └── user
+│   │       │               └── UserCreateController.ts
+│   │       └── requests
+│   │           └── api
+│   │               └── vi
+│   │                   └── user
+│   │                       └── UserCreateRequest.ts
+│   └── tsconfig.json
+└── docker-compose.yml
 
 ```

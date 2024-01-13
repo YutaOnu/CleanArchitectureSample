@@ -1,5 +1,5 @@
-import { UserId } from "./UserId";
-import { UserName } from "./UserName";
+import { UserId } from "@/domain/models/users/UserId";
+import { UserName } from "@/domain/models/users/UserName";
 export class User {
   constructor(
     private readonly name: UserName,
