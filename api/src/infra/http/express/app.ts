@@ -4,7 +4,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const bodyParser = require("body-parser");
 
-var roadmapRouter = require("./routes/roadmaps");
+var userRouter = require("./routes/user");
 
 var app = express();
 
@@ -13,5 +13,5 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-app.use("/roadmaps", roadmapRouter);
+app.use("/users", userRouter);
 module.exports = app;
