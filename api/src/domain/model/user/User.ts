@@ -9,7 +9,7 @@ export class User {
     return this._name;
   }
   get id(): UserId | null {
-    if (this.id === null) {
+    if (this._id === null) {
       throw new Error("idが設定されていません");
     }
     return this._id;
