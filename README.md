@@ -1,72 +1,81 @@
 # これは何か
 
-- クリーンアーキテクチャのディレクトリ構成の例です。
-- api/src 配下が対象になります。
+- クリーンアーキテクチャのディレクトリ・コード構成の例です。
+- app/src 配下が特に対象になります。
 - 各ファイルの役割などは右記の記事で紹介しています： https://qiita.com/o-y/items/74a9e553c01054ac3623
 
 ```
 .
-├── README.md
-├── api
-│   ├── Dockerfile
-│   ├── node_modules
-│   ├── nodemon.json
-│   ├── package-lock.json
-│   ├── package.json
-│   ├── src
-│   │   ├── application ← Application Business Rules層
-│   │   │   └── usecases
-│   │   │       └── users
-│   │   │           └── CreateUser.ts
-│   │   ├── domain ← Enterprise Business Rules層
-│   │   │   ├── gateways
-│   │   │   │   └── UserGateway.ts
-│   │   │   └── models
-│   │   │       └── users
-│   │   │           ├── User.ts
-│   │   │           ├── UserId.ts
-│   │   │           └── UserName.ts
-│   │   ├── infra ← Frameworks & Drivers層
-│   │   │   ├── db
-│   │   │   │   └── mysql
-│   │   │   │       ├── database.js
-│   │   │   │       └── repositories
-│   │   │   │           └── UserRepository.ts
-│   │   │   └── http
-│   │   │       └── express
-│   │   │           ├── adapters
-│   │   │           │   └── user
-│   │   │           │       └── toCreateRequest.ts
-│   │   │           ├── app.ts
-│   │   │           ├── bin
-│   │   │           │   └── www
-│   │   │           ├── injector
-│   │   │           │   └── UserInjector.ts
-│   │   │           ├── public
-│   │   │           │   ├── index.html
-│   │   │           │   └── stylesheets
-│   │   │           │       └── style.css
-│   │   │           └── routes
-│   │   │               └── user.ts
-│   │   └── interfaces ← Interface Adapters層
-│   │       ├── controllers
-│   │       │   └── api
-│   │       │       └── v1
-│   │       │           └── user
-│   │       │               └── UserCreateController.ts
-│   │       └── requests
-│   │           └── api
-│   │               └── vi
-│   │                   └── user
-│   │                       └── UserCreateRequest.ts
-│   └── tsconfig.json
-└── docker-compose.yml
-
+├── Dockerfile
+├── nodemon.json
+├── package-lock.json
+├── package.json
+├── src
+│   ├── domain ← Enterprise Business Rules層
+│   │   ├── gateway
+│   │   │   └── user
+│   │   │       └── UserGateway.ts
+│   │   └── model
+│   │       └── user
+│   │           ├── User.ts
+│   │           ├── UserId.ts
+│   │           └── UserName.ts
+│   ├── errors
+│   │   └── InvalidArgumentError.ts
+│   ├── infra ← Frameworks & Drivers層
+│   │   ├── db
+│   │   │   └── mysql
+│   │   │       └── database.js
+│   │   ├── http
+│   │   │   └── express
+│   │   │       ├── adapters
+│   │   │       │   └── request
+│   │   │       │       └── user
+│   │   │       │           └── UserCreateRequestAdapter.ts
+│   │   │       ├── app.ts
+│   │   │       ├── bin
+│   │   │       │   └── www
+│   │   │       ├── routes
+│   │   │       │   └── users.ts
+│   │   │       └── validators
+│   │   │           └── user
+│   │   │               └── UserCreateValidator.ts
+│   │   ├── injectors
+│   │   │   └── UserInjector.ts
+│   │   └── repositories
+│   │       └── user
+│   │           └── UserRepository.ts
+│   ├── interface ← Interface Adapters層
+│   │   ├── adapters
+│   │   │   └── user
+│   │   │       └── IUserCreateRequestAdapter.ts
+│   │   ├── controllers
+│   │   │   └── api
+│   │   │       └── v1
+│   │   │           └── user
+│   │   │               └── UserCreateController.ts
+│   │   ├── presenters
+│   │   │   └── user
+│   │   │       ├── IUserCreatePresenter.ts
+│   │   │       └── UserCreatePresenter.ts
+│   │   ├── requests
+│   │   │   └── api
+│   │   │       └── v1
+│   │   │           └── user
+│   │   │               └── UserCreateRequest.ts
+│   │   └── responses
+│   │       └── api
+│   │           └── v1
+│   │               └── user
+│   │                   └── UserCreateResponse.ts
+│   └── usecase ← Application Business Rules層
+│       └── user
+│           └── create
+│               ├── UserCreate.ts
+│               ├── UserCreateInputDTO.ts
+│               └── UserCreateOutputDTO.ts
+└── tsconfig.json
 ```
-
-https://izumisy.work/entry/2019/12/12/000521
-
-// https://github.com/little-hands/ddd-q-and-a/issues/34
 
 // 下記をターミナルで実行して、動作確認できます
 curl -X POST -H "Content-Type: application/json" \
