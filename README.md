@@ -63,3 +63,14 @@
 └── docker-compose.yml
 
 ```
+
+https://izumisy.work/entry/2019/12/12/000521
+
+// https://github.com/little-hands/ddd-q-and-a/issues/34
+
+// 下記をターミナルで実行して、動作確認できます
+curl -X POST -H "Content-Type: application/json" \
+-d '{
+"name": "太郎"
+}' \
+http://localhost:3000/users

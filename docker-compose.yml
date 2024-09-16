@@ -1,8 +1,8 @@
 version: "3"
 
 services:
-  api:
-    build: ./api
+  app:
+    build: ./app
     ports:
       - "3000:3000"
     depends_on:
@@ -13,7 +13,7 @@ services:
     env_file:
       - .env
     volumes:
-      - ./api:/app
+      - ./app:/app
       - /app/node_modules
   db:
     image: mysql:8
