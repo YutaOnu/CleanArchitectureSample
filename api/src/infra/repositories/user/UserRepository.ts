@@ -8,5 +8,3 @@ export class UserRepository implements UserGateway {
     return new User(user.name, new UserId(1));
   }
 }
-
-// https://github.com/little-hands/ddd-q-and-a/issues/34
