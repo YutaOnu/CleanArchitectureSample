@@ -5,7 +5,7 @@ import { UserCreateInputDTO } from "@/usecase/user/create/UserCreateInputDTO";
 import { UserCreateOutputDTO } from "@/usecase/user/create/UserCreateOutputDTO";
 import { IUserCreatePresenter } from "@/interface/presenters/user/IUserCreatePresenter";
 import { UserCreateResponse } from "@/interface/responses/api/v1/user/UserCreateResponse";
-
+import { InvalidArgumentError } from "@/errors/InvalidArgumentError";
 export class UserCreate {
   constructor(
     private readonly _userRepository: UserGateway,
@@ -16,7 +16,7 @@ export class UserCreate {
     const user = new User(userName);
     const result = this._userRepository.create(user);
     if (result.id === null) {
-      throw new Error("idが存在しません");
+      throw new InvalidArgumentError("idが存在しません");
     }
     const userCreateOutputDTO = new UserCreateOutputDTO(result.id, result.name);
     return this._presenter.toResponse(userCreateOutputDTO);

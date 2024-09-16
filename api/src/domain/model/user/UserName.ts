@@ -1,3 +1,5 @@
+import { InvalidArgumentError } from "@/errors/InvalidArgumentError";
+
 export class UserName {
   private static readonly MaxNameLength = 20;
   private static readonly MinNameLength = 1;
@@ -12,7 +14,7 @@ export class UserName {
       value.length < UserName.MinNameLength ||
       UserName.MaxNameLength < value.length
     ) {
-      throw new Error(
+      throw new InvalidArgumentError(
         `ユーザー名は${UserName.MinNameLength}〜${UserName.MaxNameLength}文字で入力してください`
       );
     }
