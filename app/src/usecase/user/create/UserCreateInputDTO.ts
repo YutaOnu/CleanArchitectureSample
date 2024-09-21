@@ -1,4 +1,4 @@
-import { UserCreateRequest } from "@/interface/requests/api/v1/user/UserCreateRequest";
+import { UserCreateRequest } from "@/interface/requests/user/UserCreateRequest";
 export class UserCreateInputDTO {
   private readonly _name: string;
   constructor(_userCreateRequest: UserCreateRequest) {
