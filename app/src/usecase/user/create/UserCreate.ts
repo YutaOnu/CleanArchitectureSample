@@ -8,6 +8,7 @@ import { InvalidArgumentError } from "@/errors/InvalidArgumentError";
 export class UserCreate {
   constructor(private readonly _userRepository: UserGateway) {}
   handle(userCreateInputDTO: UserCreateInputDTO): UserCreateOutputDTO {
+    // Userの生成が複雑な場合はファクトリにしても良い
     const userName = new UserName(userCreateInputDTO.name);
     const user = new User(userName);
     const result = this._userRepository.create(user);

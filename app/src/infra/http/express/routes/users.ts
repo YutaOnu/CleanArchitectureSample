@@ -9,8 +9,10 @@ router.post(
   "/",
   (req: express.Request, res: express.Response, next: express.NextFunction) => {
     try {
+      // Request Bodyに必須のキーが存在するかなどドメインに関係ないバリデーションを行う
       UserCreateValidator.validate(req);
       const adapter = new UserCreateRequestAdapter();
+      // ExpressのリクエストオブジェクトをInterface層が期待しているプレーンなリクエストオブジェクトに変換する
       const userCreateRequest = adapter.adapt(req);
       const controller = UserInjector.getUserCreateController();
       const response = controller.handle(userCreateRequest);
