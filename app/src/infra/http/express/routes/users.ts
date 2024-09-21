@@ -9,14 +9,18 @@ router.post("/", (req: express.Request, res: express.Response) => {
     UserCreateValidator.validate(req);
     const adapter = new UserCreateRequestAdapter();
     const userCreateRequest = adapter.adapt(req);
-    const injector = new UserInjector();
-    const controller = injector.getUserCreateController();
+    const controller = UserInjector.getUserCreateController();
     const response = controller.handle(userCreateRequest);
     // // ここは適当
-    res.send("respond with a create" + JSON.stringify(response));
+    res.json({
+      message: "User created successfully",
+      data: response, // ここに実際のレスポンスを含める
+    });
   } catch (error: any) {
     if (error instanceof InvalidArgumentError) {
       res.status(400).send({ error: error.message });
+    } else {
+      res.status(500).send({ error: error.message });
     }
     // TODO: その他エラー
   }

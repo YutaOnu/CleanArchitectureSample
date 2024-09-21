@@ -4,10 +4,10 @@ import { UserCreateController } from "@/interface/controllers/user/UserCreateCon
 import { UserCreatePresenter } from "@/interface/presenters/user/UserCreatePresenter";
 export class UserInjector {
   constructor() {}
-  getUserCreateController(): UserCreateController {
+  static getUserCreateController(): UserCreateController {
     const userRepository = new UserRepository();
     const presenter = new UserCreatePresenter();
-    const usecase = new UserCreate(userRepository, presenter);
-    return new UserCreateController(usecase);
+    const usecase = new UserCreate(userRepository);
+    return new UserCreateController(usecase, presenter);
   }
 }
