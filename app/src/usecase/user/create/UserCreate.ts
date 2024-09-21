@@ -4,7 +4,7 @@ import { UserGateway } from "@/domain/gateway/user/UserGateway";
 import { UserCreateInputDTO } from "@/usecase/user/create/UserCreateInputDTO";
 import { UserCreateOutputDTO } from "@/usecase/user/create/UserCreateOutputDTO";
 import { IUserCreatePresenter } from "@/interface/presenters/user/IUserCreatePresenter";
-import { UserCreateResponse } from "@/interface/responses//user/UserCreateResponse";
+import { UserCreateResponse } from "@/interface/responses/api/v1/user/UserCreateResponse";
 import { InvalidArgumentError } from "@/errors/InvalidArgumentError";
 export class UserCreate {
   constructor(

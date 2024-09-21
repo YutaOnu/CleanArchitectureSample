@@ -1,5 +1,5 @@
 import { UserCreateOutputDTO } from "@/usecase/user/create/UserCreateOutputDTO";
-import { UserCreateResponse } from "@/interface/responses//user/UserCreateResponse";
+import { UserCreateResponse } from "@/interface/responses/api/v1/user/UserCreateResponse";
 import { IUserCreatePresenter } from "@/interface/presenters/user/IUserCreatePresenter";
 export class UserCreatePresenter implements IUserCreatePresenter {
   toResponse(userCreateOutputDTO: UserCreateOutputDTO) {

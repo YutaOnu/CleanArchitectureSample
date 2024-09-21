@@ -11,7 +11,7 @@
 ├── package-lock.json
 ├── package.json
 ├── src
-│   ├── domain
+│   ├── domain ← Enterprise Business Rules層
 │   │   ├── gateway
 │   │   │   └── user
 │   │   │       └── UserGateway.ts
@@ -22,7 +22,7 @@
 │   │           └── UserName.ts
 │   ├── errors
 │   │   └── InvalidArgumentError.ts
-│   ├── infra
+│   ├── infra ← Frameworks & Drivers層
 │   │   ├── db
 │   │   │   └── mysql
 │   │   │       └── database.js
@@ -45,24 +45,30 @@
 │   │   └── repositories
 │   │       └── user
 │   │           └── UserRepository.ts
-│   ├── interface
+│   ├── interface ← Interface Adapters層
 │   │   ├── adapters
 │   │   │   └── user
 │   │   │       └── IUserCreateRequestAdapter.ts
 │   │   ├── controllers
-│   │   │   └── user
-│   │   │       └── UserCreateController.ts
+│   │   │   └── api
+│   │   │       └── v1
+│   │   │           └── user
+│   │   │               └── UserCreateController.ts
 │   │   ├── presenters
 │   │   │   └── user
 │   │   │       ├── IUserCreatePresenter.ts
 │   │   │       └── UserCreatePresenter.ts
 │   │   ├── requests
-│   │   │   └── user
-│   │   │       └── UserCreateRequest.ts
+│   │   │   └── api
+│   │   │       └── v1
+│   │   │           └── user
+│   │   │               └── UserCreateRequest.ts
 │   │   └── responses
-│   │       └── user
-│   │           └── UserCreateResponse.ts
-│   └── usecase
+│   │       └── api
+│   │           └── v1
+│   │               └── user
+│   │                   └── UserCreateResponse.ts
+│   └── usecase ← Application Business Rules層
 │       └── user
 │           └── create
 │               ├── UserCreate.ts

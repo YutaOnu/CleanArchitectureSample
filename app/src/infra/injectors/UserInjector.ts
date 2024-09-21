@@ -1,6 +1,6 @@
 import { UserRepository } from "@/infra/repositories/user/UserRepository";
 import { UserCreate } from "@/usecase/user/create/UserCreate";
-import { UserCreateController } from "@/interface/controllers//user/UserCreateController";
+import { UserCreateController } from "@/interface/controllers/api/v1/user/UserCreateController";
 import { UserCreatePresenter } from "@/interface/presenters/user/UserCreatePresenter";
 export class UserInjector {
   constructor() {}
