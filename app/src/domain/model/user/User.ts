@@ -8,7 +8,7 @@ export class User {
   get name(): UserName {
     return this._name;
   }
-  get id(): UserId | null {
+  get id(): UserId {
     if (this._id === null) {
       throw new Error("idが設定されていません");
     }

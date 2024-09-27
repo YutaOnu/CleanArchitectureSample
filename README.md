@@ -1,11 +1,10 @@
 # これは何か
 
-- クリーンアーキテクチャのディレクトリ・コード構成の例です。
+- クリーンアーキテクチャのサンプルコードです。。
 - app/src 配下が特に対象になります。
 - 各ファイルの役割などは右記の記事で紹介しています： https://qiita.com/o-y/items/74a9e553c01054ac3623
 
 ```
-.
 ├── Dockerfile
 ├── nodemon.json
 ├── package-lock.json
@@ -50,24 +49,18 @@
 │   │   │   └── user
 │   │   │       └── IUserCreateRequestAdapter.ts
 │   │   ├── controllers
-│   │   │   └── api
-│   │   │       └── v1
-│   │   │           └── user
-│   │   │               └── UserCreateController.ts
+│   │   │   └── user
+│   │   │       └── UserCreateController.ts
 │   │   ├── presenters
 │   │   │   └── user
 │   │   │       ├── IUserCreatePresenter.ts
 │   │   │       └── UserCreatePresenter.ts
 │   │   ├── requests
-│   │   │   └── api
-│   │   │       └── v1
-│   │   │           └── user
-│   │   │               └── UserCreateRequest.ts
+│   │   │   └── user
+│   │   │       └── UserCreateRequest.ts
 │   │   └── responses
-│   │       └── api
-│   │           └── v1
-│   │               └── user
-│   │                   └── UserCreateResponse.ts
+│   │       └── user
+│   │           └── UserCreateResponse.ts
 │   └── usecase ← Application Business Rules層
 │       └── user
 │           └── create
@@ -75,6 +68,7 @@
 │               ├── UserCreateInputDTO.ts
 │               └── UserCreateOutputDTO.ts
 └── tsconfig.json
+
 ```
 
 // 下記をターミナルで実行して、動作確認できます

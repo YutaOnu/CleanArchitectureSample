@@ -9,8 +9,8 @@ export class UserCreateController {
     private readonly _presenter: IUserCreatePresenter
   ) {}
   handle(req: UserCreateRequest): UserCreateResponse {
-    const inputDTO = new UserCreateInputDTO(req);
-    const outputDto = this._usecase.handle(inputDTO);
+    const inputDto = new UserCreateInputDTO(req);
+    const outputDto = this._usecase.handle(inputDto);
     return this._presenter.toResponse(outputDto);
   }
 }
